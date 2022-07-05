@@ -14,4 +14,8 @@ public class AirField {
 		this.fleet.add(jet);
 	}
 	
+	public List<Jet> getFleet() {
+		return new ArrayList<Jet>(this.fleet);
+	}
+	
 }
