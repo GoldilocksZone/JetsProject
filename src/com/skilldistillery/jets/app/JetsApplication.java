@@ -1,6 +1,7 @@
 package com.skilldistillery.jets.app;
 
 import com.skilldistillery.jets.entities.AirField;
+import com.skilldistillery.jets.entities.Jet;
 import com.skilldistillery.jets.entities.TJBomber;
 import com.skilldistillery.jets.entities.TJFighterBomber;
 import com.skilldistillery.jets.entities.TFFighter;
@@ -8,6 +9,8 @@ import com.skilldistillery.jets.entities.TPCargoPassengerTransport;
 import com.skilldistillery.jets.entities.TSAttackHelicopter;
 import com.skilldistillery.jets.entities.TSTransportHelicopter;
 import com.skilldistillery.jets.entities.TFPassengerTransport;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,6 +19,7 @@ import java.util.InputMismatchException;
 
 public class JetsApplication {
 	private String fleetData = "jets.txt";
+	private AirField airField = new AirField();
 
 	public static void main(String[] args) {
 		JetsApplication jetsApp = new JetsApplication();
@@ -24,16 +28,14 @@ public class JetsApplication {
 	}
 
 	public void run() {
-		AirField airField = this.readFleet();
-
+		this.readFleet();
 		this.printHeader();
 		this.printInstructions();
 		this.printMenuOptions();
-		this.fulfillUserRequest(airField.getFleet(), this.getSelection());
+		this.fulfillUserRequest(this.getSelection());
 	}
 
-	public AirField readFleet() {
-		AirField airField = new AirField();
+	public void readFleet() {
 		try (BufferedReader br = new BufferedReader(new FileReader(this.fleetData))) {
 			String line;
 			String[] fields;
@@ -42,31 +44,31 @@ public class JetsApplication {
 					fields = line.split(",");
 					switch (fields[0]) {
 					case "TJBomber":
-						airField.addJet(new TJBomber(fields[3], Integer.parseInt(fields[7]),
+						this.airField.addJet(new TJBomber(fields[3], Integer.parseInt(fields[7]),
 								Integer.parseInt(fields[8]), Long.parseLong(fields[9])));
 						break;
 					case "TJFighterBomber":
-						airField.addJet(new TJFighterBomber(fields[3], Integer.parseInt(fields[7]),
+						this.airField.addJet(new TJFighterBomber(fields[3], Integer.parseInt(fields[7]),
 								Integer.parseInt(fields[8]), Long.parseLong(fields[9])));
 						break;
 					case "TFFighter":
-						airField.addJet(new TFFighter(fields[3], Integer.parseInt(fields[7]),
+						this.airField.addJet(new TFFighter(fields[3], Integer.parseInt(fields[7]),
 								Integer.parseInt(fields[8]), Long.parseLong(fields[9])));
 						break;
 					case "TPCargoPassengerTransport":
-						airField.addJet(new TPCargoPassengerTransport(fields[3], Integer.parseInt(fields[7]),
+						this.airField.addJet(new TPCargoPassengerTransport(fields[3], Integer.parseInt(fields[7]),
 								Integer.parseInt(fields[8]), Long.parseLong(fields[9])));
 						break;
 					case "TSAttackHelicopter":
-						airField.addJet(new TSAttackHelicopter(fields[3], Integer.parseInt(fields[7]),
+						this.airField.addJet(new TSAttackHelicopter(fields[3], Integer.parseInt(fields[7]),
 								Integer.parseInt(fields[8]), Long.parseLong(fields[9])));
 						break;
 					case "TSTransportHelicopter":
-						airField.addJet(new TSTransportHelicopter(fields[3], Integer.parseInt(fields[7]),
+						this.airField.addJet(new TSTransportHelicopter(fields[3], Integer.parseInt(fields[7]),
 								Integer.parseInt(fields[8]), Long.parseLong(fields[9])));
 						break;
 					case "TFPassengerTransport":
-						airField.addJet(new TFPassengerTransport(fields[3], Integer.parseInt(fields[7]),
+						this.airField.addJet(new TFPassengerTransport(fields[3], Integer.parseInt(fields[7]),
 								Integer.parseInt(fields[8]), Long.parseLong(fields[9])));
 						break;
 					}
@@ -76,7 +78,6 @@ public class JetsApplication {
 		} catch (IOException e) {
 			System.out.println("IOException: Check filename and file type.");
 		}
-		return airField;
 	}
 
 	public void printHeader() {
@@ -126,7 +127,7 @@ public class JetsApplication {
 							// control block.
 	}
 
-	public void fulfillUserRequest(AirField airField, int selection) {
+	public void fulfillUserRequest(int selection) {
 		switch (selection) {
 		case 1:
 			listFleet();
@@ -159,15 +160,27 @@ public class JetsApplication {
 	}
 
 	public void listFleet() {
+		System.out.println(this.airField.toString());
 	}
 
 	public void flyAllJets() {
+		for (int i = 0; i < this.airField.getFleet().size(); i++) {
+			this.airField.getFleet().get(i).fly();
+		}
 	}
 
 	public void displayFastestJet() {
+		List<Jet> jetsBySpeed = this.airField.getFleet();
+		Collections.sort(jetsBySpeed, new JetSpeedComparator());
+		System.out.println("The fastest jet in the fleet is...");
+		System.out.println(jetsBySpeed.get(jetsBySpeed.size() - 1).toString());
 	}
 
 	public void displayJetWithLongestRange() {
+		List<Jet> jetsByRange = this.airField.getFleet();
+		Collections.sort(jetsByRange, new JetSpeedComparator());
+		System.out.println("The jet in the fleet with the longest range is...");
+		System.out.println(jetsByRange.get(jetsByRange.size() - 1).toString());
 	}
 
 	public void loadAllTransportJets() {

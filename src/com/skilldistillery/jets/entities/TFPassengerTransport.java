@@ -2,14 +2,15 @@ package com.skilldistillery.jets.entities;
 
 import java.util.ArrayList;
 
-public class TFPassengerTransport extends TurboShaft implements Passenger {
-
+public class TFPassengerTransport extends TurboFan implements Passenger {
+	private int capacity = ((int) Math.random()*100);	
+	
 	public TFPassengerTransport (String model, int speed, int range, double price) {
 		super(model, speed, range, price);
 	}
 	
 	public void boardPassengers() {
-		
+		System.out.println("Boarding all passengers...");
 	}
 	
 	public ArrayList<String> getManifest() {
@@ -17,10 +18,10 @@ public class TFPassengerTransport extends TurboShaft implements Passenger {
 	}
 	
 	public int getCapacity() {
-		return 0;
+		return this.capacity;
 	}
 	
-	public void setCapacity() {
-		
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
 	}
 }

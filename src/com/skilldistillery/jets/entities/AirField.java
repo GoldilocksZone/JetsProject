@@ -18,4 +18,13 @@ public class AirField {
 		return new ArrayList<Jet>(this.fleet);
 	}
 	
+	public String toString() {
+		StringBuilder string = new StringBuilder();
+		for (int i = 0; i < this.fleet.size(); i++) {
+			string.append(this.fleet.get(i).toString());
+			string.append("\n");
+		}
+		return string.toString();
+	}
+	
 }
