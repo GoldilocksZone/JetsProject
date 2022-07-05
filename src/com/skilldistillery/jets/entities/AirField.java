@@ -14,6 +14,10 @@ public class AirField {
 		this.fleet.add(jet);
 	}
 	
+	public void removeJet(int index) {
+		this.fleet.remove(index);
+	}
+	
 	public List<Jet> getFleet() {
 		return new ArrayList<Jet>(this.fleet);
 	}

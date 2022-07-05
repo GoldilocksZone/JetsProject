@@ -13,12 +13,8 @@ public class TPCargoPassengerTransport extends TurboProp implements Cargo, Passe
 		return new String(Cargo.units);
 	}
 	
-	public void loadCargo() {
-		System.out.println("Loading cargo...");
-	}
-	
-	public void boardPassengers() {
-		System.out.println("Boarding all passengers...");
+	public void load() {
+		System.out.println("Loading passengers and cargo...");
 	}
 	
 	public ArrayList<String> getManifest() {
@@ -39,7 +35,6 @@ public class TPCargoPassengerTransport extends TurboProp implements Cargo, Passe
 		string.append(this.getClass().getSimpleName() + ":");
 		string.append("\n");
 		string.append(super.toString());
-		string.append("\n");
 		string.append("Total Capacity (cargo + passengers): " + this.getCapacity() + " " + this.getCargoUnits());
 		string.append("\n");
 		

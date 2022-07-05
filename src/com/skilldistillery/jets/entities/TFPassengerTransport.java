@@ -9,7 +9,7 @@ public class TFPassengerTransport extends TurboFan implements Passenger {
 		super(model, speed, range, price);
 	}
 	
-	public void boardPassengers() {
+	public void load() {
 		System.out.println("Boarding all passengers...");
 	}
 	
@@ -23,5 +23,18 @@ public class TFPassengerTransport extends TurboFan implements Passenger {
 	
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder string = new StringBuilder();
+		string.append(this.getClass().getSimpleName() + ":");
+		string.append("\n");
+		string.append(super.toString());
+		string.append("\n");
+		string.append("Total Capacity (passengers): " + this.getCapacity());
+		string.append("\n");
+		
+		return string.toString();
 	}
 }

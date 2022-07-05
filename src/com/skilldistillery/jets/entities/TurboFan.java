@@ -13,7 +13,7 @@ public abstract class TurboFan extends Jet {
 		StringBuilder string = new StringBuilder();
 		string.append(super.toString());
 		string.append("\n");
-		string.append("Bypass level:" + bypassLevel);
+		string.append("Bypass level: " + bypassLevel);
 		return string.toString();
 	}
 }

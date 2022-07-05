@@ -13,12 +13,8 @@ public class TSTransportHelicopter extends TSHelicopter implements Transport {
 		return new String(Cargo.units);
 	}
 	
-	public void loadCargo() {
-		System.out.println("Loading cargo...");
-	}
-	
-	public void boardPassengers() {
-		System.out.println("Boarding all passengers...");
+	public void load() {
+		System.out.println("Loading cargo and passengers...");
 	}
 	
 	public ArrayList<String> getManifest() {
@@ -36,10 +32,7 @@ public class TSTransportHelicopter extends TSHelicopter implements Transport {
 	@Override
 	public String toString() {
 		StringBuilder string = new StringBuilder();
-		string.append(this.getClass().getSimpleName() + ":");
-		string.append("\n");
 		string.append(super.toString());
-		string.append("\n");
 		string.append("Total Capacity: " + this.getCapacity() + " " + this.getCargoUnits());
 		string.append("\n");
 		

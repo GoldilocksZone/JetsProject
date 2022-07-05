@@ -21,14 +21,18 @@ public abstract class Jet {
 		return this.range;
 	}
 	
+	public String getModel() {
+		return new String(this.model);
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder string = new StringBuilder();
-		string.append("Model:" + model);
+		string.append("Model: " + model);
 		string.append("\n");
-		string.append("Speed:" + speed + "mph");
+		string.append("Speed: " + speed + "mph");
 		string.append("\n");
-		string.append("Range:" + range + "mi");
+		string.append("Range: " + range + "mi");
 		string.append("\n");
 		string.append(String.format("Price: $%.2f", price));
 		return string.toString();
@@ -36,5 +40,7 @@ public abstract class Jet {
 	
 	public void fly() {
 		System.out.println(this.flyingNoise);
+		System.out.println("The following jet can fly for " + ((int) this.range / this.speed)+ " hours:");
+		System.out.println(this.toString());
 	}
 }

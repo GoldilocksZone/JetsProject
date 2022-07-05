@@ -5,5 +5,4 @@ public interface Cargo extends Transport {
 	
 	public String getCargoUnits();
 	
-	public void loadCargo();
 }

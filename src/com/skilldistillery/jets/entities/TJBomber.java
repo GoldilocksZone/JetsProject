@@ -41,7 +41,6 @@ public class TJBomber extends TurboJet implements Bomb {
 		string.append(this.getClass().getSimpleName() + ":");
 		string.append("\n");
 		string.append(super.toString());
-		string.append("\n");
 		string.append("Ammo level: " + this.currentAmmo + "/" + this.ammoCapacity);
 		string.append("\n");
 		return string.toString();

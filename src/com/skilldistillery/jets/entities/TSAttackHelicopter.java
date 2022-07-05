@@ -38,10 +38,7 @@ public class TSAttackHelicopter extends TSHelicopter implements Attack {
 	@Override
 	public String toString() {
 		StringBuilder string = new StringBuilder();
-		string.append(this.getClass().getSimpleName() + ":");
-		string.append("\n");
 		string.append(super.toString());
-		string.append("\n");
 		string.append("Ammo level: " + this.currentAmmo + "/" + this.ammoCapacity);
 		string.append("\n");
 		return string.toString();

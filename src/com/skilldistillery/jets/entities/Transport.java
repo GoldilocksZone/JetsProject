@@ -9,4 +9,6 @@ public interface Transport {
 	public int getCapacity();
 	
 	public void setCapacity(int capacity);
+	
+	public void load();
 }

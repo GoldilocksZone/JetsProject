@@ -1,6 +1,9 @@
 package com.skilldistillery.jets.entities;
 
+import java.util.ArrayList;
+
 public interface Passenger extends Transport {
 	
-	public void boardPassengers();
+	public ArrayList<String> getManifest();
+	
 }

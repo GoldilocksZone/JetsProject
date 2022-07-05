@@ -1,0 +1,8 @@
+Aircraft Type,Engine Type,Functions,Designator,Nickname,Manufacturer,Speed (mph),Range (mi),Price
+TJBomber,Turbojet,Bomb,H-6,,Xi'an Aircraft Industrial Corporation,652,3728,46000000
+TJFighterBomber,Turbojet,"Attack, Bomb",JH-7,Flying Leopard,Xi'an Aircraft Industrial Corporation,1123,1093,19500000
+TFFighter,Turbofan,Attack,J-15,Flying Shark,Shenyang Aircraft Corporation,1585,2175,61000000
+TPCargoPassengerTransport,Turboprop,"Cargo, Passenger",Y-7,,Xi'an Aircraft Industrial Corporation,315,570,22000000
+TSAttackHelicopter,Turboshaft,Attack,WZ-10,Fierce Thunderbolt,Changhe Aircraft Industries Corporation,186,510,17000000
+TSTransportHelicopter,Turboshaft,Passenger,AC311,,AVICopter,180,410,20000000
+TFPassengerTransport,Turbofan,Passenger,C919,,"Commercial Aircraft Corporation of China, Ltd. (Comac)",600,3450,1000000
