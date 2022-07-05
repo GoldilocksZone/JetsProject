@@ -95,9 +95,9 @@ public class JetsApplication {
 	}
 
 	public void printHeader() {
-		System.out.println("*****************");
-		System.out.println("* Fleet Manager *");
-		System.out.println("*****************");
+		System.out.println("**********************************");
+		System.out.println("* Chinese Aircraft Fleet Manager *");
+		System.out.println("**********************************");
 		System.out.println();
 	}
 
