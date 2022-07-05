@@ -2,9 +2,17 @@ package com.skilldistillery.jets.entities;
 
 import java.util.ArrayList;
 
-public class TPCargoPassenger extends TurboProp implements Cargo, Passenger {
+public class TPCargoPassengerTransport extends TurboProp implements Cargo, Passenger {
 
+	public TPCargoPassengerTransport (String model, int speed, int range, double price) {
+		super(model, speed, range, price);
+	}
+	
 	public void loadCargo() {
+		
+	}
+	
+	public void boardPassengers() {
 		
 	}
 	
